@@ -1,0 +1,132 @@
+<section class="section main-background">
+    <div class="container">
+        <article class="tile is-child notification main-body">
+            <div class="waifu"></div>
+            <div class="content inline main-content">
+                <div class="status">
+                    <span>
+                        <span style="color: #2094ca;" class="counter-text" id="total"> 0 </span> total users
+                    </span>
+                    <span style="margin-left: 16px;">
+                        <span class="counter-text" id="online"> 0 </span> online users
+                    </span>
+                </div>
+                <span class="main-content-title">osu!katagiri</span>
+                <div class="main-content-body">
+                    Hiya! <b>Welcome to osu!katagiri</b>. On this website you'll find that we are an osu! server based
+                    around ranked relax and autopilot - allocating for giving them proper scoring submission and
+                    individual rankings. Additionally, we aim to simulate our own variation of the osu! community with
+                    our own lower standards and management; while being a helpful haven for those tired of the meta. For
+                    better connection with our community, we have a <a href="#">Discord</a> server readily available for
+                    you to join.
+
+                    <div class="main-content-buttons"><br>
+                        <a class="button is-primary" style="background-color: #5996FF;"><b>register</b></a>
+                        <a class="button is-primary"><b>server switcher</b></a>
+                    </div>
+                </div>
+            </div>
+        </article><br>
+        <div class="columns">
+            <div class="column">
+                <nav class="panel inline" style="text-align: center !important;">
+                    <p class="panel-heading" style="background-color: var(--body-color); color: white !important;">
+                        <span class="j4">Top Score (Vanilla)</span><br>
+                        <span class="j3" id="vn-pp">0pp</span>
+                    </p>
+                    <div class="panel-block" style="background-color: var(--body-color); color: white !important;">
+                        <p style="text-align: right">
+                            Played by <strong id="vn-holder" style="color: white !important;">Nobody</strong>
+                        </p>
+                    </div>
+                </nav>
+            </div>
+            <div class="column">
+                <nav class="panel inline" style="text-align: center !important;">
+                    <p class="panel-heading" style="background-color: var(--body-color); color: white !important;">
+                        <span class="j4">Top Score (Relax)</span><br>
+                        <span class="j3" id="rx-pp">0pp</span>
+                    </p>
+                    <div class="panel-block" style="background-color: var(--body-color); color: white !important;">
+                        <p style="text-align: right">
+                            Played by <strong id="rx-holder" style="color: white !important;">Nobody</strong>
+                        </p>
+                    </div>
+                </nav>
+            </div>
+            <div class="column">
+                <nav class="panel inline" style="text-align: center !important;">
+                    <p class="panel-heading" style="background-color: var(--body-color); color: white !important;">
+                        <span class="j4">Top Score (Autopilot)</span><br>
+                        <span class="j3" id="ap-pp">0pp</span>
+                    </p>
+                    <div class="panel-block" style="background-color: var(--body-color); color: white !important;">
+                        <p style="text-align: right">
+                            Played by <strong id="ap-holder" style="color: white !important;">Nobody</strong>
+                        </p>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <span class="j3">News</span><br>
+        <article class="tile is-child" id="news">
+        </article>
+    </div>
+</section>
+
+<script>
+    // load news
+    axios.get("/api/web/news?limit=4") // limit news
+        .then((res) => {
+            if (res.data.code !== 200)
+                return; // well that sucks 
+
+            let news = res.data.data
+            let first = news.shift()
+
+            $("#news").append(newsFormat(first, true));
+
+            let base = `<br><article class="tile is-child" id="news"><div class="columns" id="secondaries">`
+            function newsFormat(data, first = false) {
+                return `<div class="column${first == false ? "" : " no-padding"} article">
+                    <a href="/news/${data.id}"><nav class="panel">
+                        <p class="panel-heading news-header" style="background-image: url(${data.image_url || "/static/images/default_news.svg"});">
+                        </p>
+                        <div class="panel-block news-content">
+                            <p>
+                                ${data.title}<br>
+                                by <strong>${data.author_name}</strong>
+                            </p>
+                        </div>
+                    </nav></a>
+                </div>`
+            }
+
+            for (let newy of news) {
+                console.log(newy)
+                base += newsFormat(newy);
+            }
+
+            base += `</div></article>`;
+            console.log(base)
+            $("#news").append(base);
+        });
+
+    // load player count
+    axios.get("/api/metadata") // limit news
+        .then((res) => {
+            if (res.data.code !== 200)
+                return; // well that sucks 
+
+            let data = res.data.data
+
+            $("#total").html(` ${data.users.total} `);
+            $("#online").html(` ${data.users.online} `);
+
+            for (let key of Object.keys(data.records)) {
+                $(`#${key}-pp`).html(Math.floor(data.records[key].pp) + "pp");
+                $(`#${key}-holder`).html(data.records[key].holder);
+            }
+        });
+</script>
