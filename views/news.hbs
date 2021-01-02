@@ -1,0 +1,62 @@
+<style>
+    .year {
+        color: #655c82 !important;
+        font-size: 1.001em;
+        font-weight: 600;
+        padding: 5px;
+        width: auto;
+    }
+
+    .active-year {
+        color: white !important;
+    }
+
+    .year:hover {
+        text-decoration: underline !important;
+    }
+</style>
+
+<section class="section main-background">
+    <div class="container" style=" width: 50%;">
+        <span class="j2">News</span><br><br>
+        <div class="columns main-body" style="height: auto !important;">
+            <div class="column article" style="width: 5px !important;">
+                <article class="tile is-child notification" style="background-color: #34313e;">
+                    {{#each years}}
+                    <a class="{{#ifeq @root.year this}}active-year{{else}}year{{/ifeq}}" href="/news?year={{this}}">
+                        {{this}}
+                    </a>
+                    {{/each}}
+                </article>
+
+                {{! months }}
+                {{#each strings}}
+            
+                {{/each}}
+            </div>
+            <div class="column article" style=" width: 1000px;">
+                {{#each news}}
+                <article class="tile is-child">
+                    <div class="column article">
+                        <a href="/news/{{this.id}}">
+                            <nav class="panel">
+                                <p class="panel-heading news-header"
+                                    style="background-image: url('{{#if this.image_url}} {{this.image_url}} {{else}} /static/images/default_news.svg {{/if}}'); height: 160px;">
+                                </p>
+                                <div class="panel-block news-content">
+                                    <p>
+                                        <span class="j4" style="font-weight: 600;">{{this.title}}</span><br>
+                                        {{cut this.post}}<br>
+                                        <span style="font-size: 0.7em;">by
+                                            <strong>{{this.author_name}}</strong></span>
+                                    </p>
+                                </div>
+                            </nav>
+                        </a>
+                    </div>
+                </article>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</section>
