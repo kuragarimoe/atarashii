@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>{{title}} - Katagiri</title>
+    <title>{{title}} | katagiri</title>
     <!-- Metatags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Header Scripts & Stylesheets -->
-    <link rel="stylesheet" href="static/css/root.v1.css" /> <!-- Root CSS -->
-    <link rel="stylesheet" href="static/css/nav.v1.css" /> <!-- Navigation -->
+    <link rel="stylesheet" href="/static/css/root.v1.css" /> <!-- Root CSS -->
+    <link rel="stylesheet" href="/static/css/nav.v1.css" /> <!-- Navigation -->
     <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script> {{! TEMPORARY, TILL WE MAKE OUR OWN SOLUTION}}
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    {{! TEMPORARY, TILL WE MAKE OUR OWN SOLUTION}}
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
     {{> bulma-extensions}}
 
     <!-- Main CSS Files -->
-    <link rel="stylesheet" href="static/css/main.v1.css" /> <!-- Main -->
+    <link rel="stylesheet" href="/static/css/main.v1.css" /> <!-- Main -->
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script> <!-- Twemoji -->
     <!-- <script src="static/js/main.v1.js"></script> -->
 </head>
+
 <body>
-    {{! navigation }}
-    {{> navbar }}
+    <div id="snow-container">
+        {{! navigation }}
+        {{> navbar }}
 
-    {{! hero }}
-    {{> hero }}
+        {{! hero }}
+        {{> hero }}
 
-    {{! body of the page}}
-    {{{body}}}
+        {{! body of the page}}
+        {{{body}}}
+    </div>
 </body>
 {{! footer of the age}}
 {{> footer}}
+
 </html>

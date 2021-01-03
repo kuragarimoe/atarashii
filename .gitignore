@@ -1,5 +1,8 @@
 node_modules/
 package-lock.json
 
+# ignore compiled SCSS
+*.css
+
 # No.
 mysql.toml

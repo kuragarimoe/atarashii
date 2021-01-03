@@ -68,7 +68,11 @@ router.get("/", async (req, res) => {
     });
 
     if (!years.includes(year) || news.length == 0)
-        return res.status(404).send("Not Found.");
+        return res.status(404).render(".error", {
+            error_name: "Year not found...",
+            error_message: "We were unable to find any news in the year that you provided.",
+            title: "news"
+        })
 
     let monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
@@ -82,7 +86,7 @@ router.get("/", async (req, res) => {
         year,
         strings: overall,
         rendered: true,
-        title: "News"
+        title: "news"
     })
 })
 

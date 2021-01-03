@@ -99,6 +99,19 @@ router.post("/login", async (req, res) => {
                 })
         }
     });
+});
+
+router.post("/logout", async(req, res) => {
+    let web = req.pools["web"];
+    if (!req.body.access_token)
+        return res.status(409).json({
+            code: 409,
+            message: "You are missing an access token!"
+        });
+
+    let [rows, _] = await web.execute(`SELECT token FROM login_tokens WHERE user_id = ${users[0].id};`);
+
+    console.log(rows)
 })
 
 module.exports = router;

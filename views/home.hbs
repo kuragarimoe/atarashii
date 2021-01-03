@@ -119,7 +119,7 @@
             if (res.data.code !== 200)
                 return; // well that sucks 
 
-            let data = res.data.data;
+            let data = res.data.data
 
             $("#total").html(` ${data.users.total} `);
             $("#online").html(` ${data.users.online} `);

@@ -135,7 +135,7 @@ router.get("/:query/scores", async (req, res) => {
     let conn = req.pools["server"];
     let sort = req.query.sort || "top";
     let query = require("mysql2").escape(req.params.query);
-    let [users, _] = await conn.execute(`SELECT * FROM users WHERE name LIKE ${query} OR safe_name LIKE ${query} OR id LIKE ${query}`);
+    let [users, _] = await conn.execute(`SELECT * FROM users WHERE name LIKE ${query} OR safe_name LIKE ${query} OR id = ${query}`);
 
     if (!users[0])
         return res.status(404).json({
@@ -175,6 +175,7 @@ router.get("/:query/scores", async (req, res) => {
     let order = "pp";
     switch (sort) {
         case "top": order = "pp"; break;
+        case "score": order = "score"; break;
         case "recent": order = "play_time"; break;
         default:
             return res.status(409).json({
