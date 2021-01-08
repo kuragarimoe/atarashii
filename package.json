@@ -28,6 +28,7 @@
     "mysql2": "^2.2.5",
     "node-sass": "^5.0.0",
     "node-sass-middleware": "^0.11.0",
+    "s-ago": "^2.2.0",
     "toml": "^3.0.0"
   }
 }
