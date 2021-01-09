@@ -1,6 +1,9 @@
 node_modules/
 package-lock.json
 
+# include fa-extra
+!fa-extra.v1.css
+
 # ignore compiled SCSS
 *.css
 
