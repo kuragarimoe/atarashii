@@ -26,10 +26,6 @@ router.get("/:query", async (req, res) => {
 
 	roles = roles.sort((a, b) => b.priority - a.priority);
 
-	console.log({
-		created: new Date(user[0].creation_time * 1000),
-		last: new Date(user[0].latest_activity * 1000)
-	})
 	res.status(200).render(".user", {
 		user: user[0],
 		title: user[0].name + "'s profile",
