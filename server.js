@@ -4,6 +4,7 @@ const sass = require('node-sass-middleware');
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const Logger = require("./lib/util/Logger");
+const morgan = require('morgan');
 
 // CONSTANTS
 const PORT = 27341;
@@ -17,19 +18,7 @@ const app = require("express")();
     app.use(cookieParser());
 
     /// REQUEST LOGGER ///
-    app.use((req, res, next) => {
-        var oldEnd = res.end;
-
-        var chunks = [];
-
-        res.end = function (...args) {
-            Logger.debug(`[${req.method}] ${req.url} (${res.statusCode})`)
-
-            return oldEnd.apply(res, args)
-        };
-
-        next();
-    })
+    app.use(morgan("dev"));
 
     // MIDDLEWARE //
     app.use(express.urlencoded({ extended: true }))
