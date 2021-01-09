@@ -1,0 +1,16 @@
+body {
+    background-image: url("/static/images/backgrounds/testbg.jpg");
+}
+
+.login-panel {
+    width: 520px;
+}
+
+.login-panel > p.panel-heading {
+    color: white;
+    background-color: #2e3238;
+}
+
+.panel-block:not(:last-child), .panel-tabs:not(:last-child) {
+    border-bottom: none;
+}
