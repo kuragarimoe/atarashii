@@ -21,7 +21,9 @@ $(window).on('load', function() {
         // is self
     } else {
         // add follow button
-        $("#dates").before(`<br><button id="follow" class="button follow-button">Follow</button>`);
+        if (ACCOUNT.following.find(a => a.user_id == parseInt(url) || a.username == url)) {
+            $("#dates").before(`<br><button id="follow" class="button follow-button">Unfollow</button>`);
+        } else $("#dates").before(`<br><button id="follow" class="button follow-button">Follow</button>`);
 
         $("#follow").click(() => {
             Account().follow(url)
