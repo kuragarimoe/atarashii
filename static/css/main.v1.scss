@@ -161,3 +161,25 @@ a, body, h1, h2, div {
     background-attachment: fixed;
     background-size:  cover;
 }
+
+// INPUT
+.input, .select select, .textarea {
+    background-color: #434d56;
+    border-color: #434d56;
+    border-radius: 4px;
+    color: white;
+}
+
+input:hover, .is-hovered.input, .is-hovered.textarea, .select select.is-hovered, .select select:hover, .textarea:hover {
+    border-color: #434d56;
+}
+
+.input::placeholder {
+    color: #c4ccd8;
+}
+
+// NOTIF COLORS
+.is-error {
+    background-color: #352c2c;
+    border: 1px solid #8e5454;
+}

@@ -1,0 +1,113 @@
+
+    .user-profile {
+        width: 100%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .user-info {
+        flex: none;
+        width: auto;
+        height: 100%;
+        margin: 5px;
+        padding: 20px;
+
+        word-wrap: break-word !important;
+        text-align: center;
+        text-shadow: 0 1px 3px rgba(0,0,0,.75);
+
+        background-color: #2e3238;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    .user-avatar {
+        height: 128px;
+        width: 128px;
+        border-radius: 14px;
+        background-size: 120%;
+        position: relative;
+        background-position: center;
+    }
+
+    .username {
+        padding-top: 2px;
+    }
+
+    .verify-check {
+        margin-left: 4px;
+        background-color: #3a94ff;
+        padding: 4px;
+        color: #fff;
+        border-radius: 12px;
+    }
+
+    .country {
+        filter: brightness(1.5) contrast(0.75);
+        position: relative;
+        top: 2.8px;
+    }
+
+    .country img {
+        width: 18px;
+        height: auto;
+    }
+
+    .header {
+        height: 50px;
+        width: 100%;
+        background-color: #302d38;
+    }
+
+    .user-body {
+        padding-top: 5px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .user-page {
+        background-color: #2e3238;
+    }
+
+    .user-header {
+        background-color: #3d424a;
+    }
+
+    .biography {
+        background-color: #2e3238;
+        color: white !important;
+
+        overflow-y: auto;
+        padding: 10px;
+        overflow: none;
+        min-height: 293px;
+        max-height: 250px;
+    }
+
+    .header div.hero-body {
+        padding: 0px 10px 0px 20px !important;
+        padding-left: 20px;
+        color: white !important;
+    }
+
+    .no-underline-tooltip {
+        border-bottom: none !important;
+    }
+
+    a {
+        color: hsl(var(--background-color), 70%, 80%);
+    }
+
+    .follow-button {
+        height: auto;
+        width: auto;
+        padding: 0px 3px 0px 3px;
+        color:white;
+        font-size: 0.6em;
+
+        border: 1px solid #616975;
+        background-color: #3d424a;
+    }

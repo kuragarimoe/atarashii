@@ -1,73 +1,67 @@
-<style>
-    .user-info {
-        width: auto;
-        height: auto;
-        word-wrap: break-word !important;
-        background-color: #34313e !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .user-avatar {
-        height: 128px;
-        width: 128px;
-        border-radius: 14px;
-        background-size: 120%;
-        position: relative;
-    }
-
-    .username {
-        padding-top: 2px;
-    }
-
-    .verify-check {
-        margin-left: 4px;
-        background-color: #3a94ff;
-        padding: 4px;
-        color: #fff;
-        border-radius: 12px;
-    }
-
-    .country {
-        position: relative;
-        top: 2.8px;
-    }
-
-    .country img {
-        width: 18px;
-        height: auto;
-    }
-
-    .user-body {
-        width: auto;
-    }
-
-    .no-underline-tooltip {
-        border-bottom: none !important;
-    }
-</style>
+<link rel="stylesheet" href="/static/css/pages/user.v1.css" />
+<link rel="stylesheet" href="/static/css/fa-extra.v1.css" />
 
 <section class="section main-background">
-    <div class="container">
-        <div class="columns main-body" style="height: auto !important;">
-            <div class="column user-info" id="user-info">
-                <div class="user-avatar" style="background-image: url(http://a.lupinus.ml/{{user.id}});" />
+    <div class="container user-profile">
+        <div class="columns" style="width: 100%;">
+            <div class="column user-info">
+                <div class="user-avatar" style="background-image: url(http://a.lupinus.ml/{{user.id}});"></div>
+                <div id="user-data">
+                    <span class="username">{{#if country_code}}<span
+                            class="country no-underline-tooltip has-tooltip-arrow"
+                            data-tooltip="{{country_name}}">{{country_code}}</span>{{/if}}
+                        {{user.name}}</span>
+                    {{#if verified}}<span class="no-underline-tooltip has-tooltip-arrow"
+                        data-tooltip="Verified Player"><i class="fa fa-check verify-check"></i></span>{{/if}}<br>
+
+                    {{#if role}}
+                        <span style="color: {{role.color}}">{{role.name}}</span>
+                    {{/if}}
+                </div>
+                <div id="roles">
+                    {{#each roles}}
+                    <span class="tag no-underline-tooltip has-tooltip-arrow" data-tooltip="{{this.name}}"
+                        style="color: {{this.color}}; background-color: #17191c;">
+                        {{this.tag}}
+                        {{#if this.mode}}
+                        <span style="padding: 1px 0px 0px 4px; color: white;"
+                            class="fal fa-extra-mode-{{this.mode}}"></span>
+                        {{/if}}
+                        {{#if this.icon}}
+                        <i style="padding: 1px 0px 0px 4px; color: white;"
+                            class="fa fa-{{this.icon}}"></i>
+                        {{/if}}
+                    </span>
+                    {{/each}}
+                </div>
+                <span style="font-size: 0.7em;"><span id="follower-count">{{followers}}</span> follower(s)</span>
+                <div id="dates" style="margin: 0px; line-height: 12px;">
+                    <span style="font-size: 0.7em; color:#3a94ff;">Joined: <strong
+                            style="color: white; padding-left: 2px;">{{dates.created}}</strong></span><br>
+                    <span style="font-size: 0.7em; color:#3a94ff;">Last Seen: <strong
+                            style="color: white; padding-left: 2px;">{{dates.last}}</strong></span>
+                </div>
             </div>
-            <div class="user-name">
-                <span class="username"><span class="country">{{country_code}}</span> {{user.name}}</span>
-                <span class="no-underline-tooltip has-tooltip-arrow" data-tooltip="Verified Player"><i class="fa fa-check verify-check"></i>
-            </div>
-        </div>
-        <div class="column is-four-fifths">
-            <div id="user-body" style="width: auto;">
-                {{country_code}}
+            <div class="column">
+                <div class="columns user-body">
+                    <div class="column biography" id="biography">
+                        {{#if user_settings.bio}}
+                        {{user_settings.bio}}
+                        {{else}}
+                        [i]No biography provided...[/i]
+                        {{/if}}
+                    </div>
+                    <div class="column">
+                        <div class="columns user-body">
+                            <div class="column user-header">
+                                Profiles are work in progress!
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<script>
-    twemoji.parse(document.body);
-</script>
+<script src="/static/js/pages/user.v1.js"></script>
