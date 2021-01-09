@@ -110,8 +110,6 @@ router.post("/logout", async(req, res) => {
         });
 
     let [rows, _] = await web.execute(`SELECT token FROM login_tokens WHERE user_id = ${users[0].id};`);
-
-    console.log(rows)
 })
 
 module.exports = router;
