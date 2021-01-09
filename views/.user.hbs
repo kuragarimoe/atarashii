@@ -21,15 +21,15 @@
                 <div id="roles">
                     {{#each roles}}
                     <span class="tag no-underline-tooltip has-tooltip-arrow" data-tooltip="{{this.name}}"
-                        style="color: {{this.color}}; background-color: #17191c;">
+                        style="background-color: #17191c !important; color: {{this.color}};">
                         {{this.tag}}
                         {{#if this.mode}}
-                        <span style="padding: 1px 0px 0px 4px; color: white;"
+                        <span style="padding: 1px 0px 0px 4px; color: white; font-size: 1.5em;"
                             class="fal fa-extra-mode-{{this.mode}}"></span>
                         {{/if}}
                         {{#if this.icon}}
-                        <i style="padding: 1px 0px 0px 4px; color: white;"
-                            class="fa fa-{{this.icon}}"></i>
+                        <i style="padding: 1px 0px 0px 4px; color: white; font-size: 1.5em;"
+                            class="fab fa-{{this.icon}}"></i>
                         {{/if}}
                     </span>
                     {{/each}}

@@ -1,6 +1,7 @@
 // MODULES
 const express = require("express");
 const sass = require('node-sass-middleware');
+const cookieParser = require("cookie-parser");
 const path = require("path");
 const Logger = require("./lib/util/Logger");
 
@@ -12,6 +13,9 @@ const app = require("express")();
 
 // ASYNC //
 (async () => {
+    /// COOKIES ///
+    app.use(cookieParser());
+
     /// REQUEST LOGGER ///
     app.use((req, res, next) => {
         var oldEnd = res.end;

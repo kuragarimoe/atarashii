@@ -44,7 +44,7 @@ router.post("/login", async (req, res) => {
     if (!users[0])
         return res.status(404).json({
             code: 404,
-            message: "The username provided is not found."
+            message: "The user by the username provided was not found."
         });
 
     // :desolate:
@@ -73,7 +73,7 @@ router.post("/login", async (req, res) => {
                     })
                 } else {
                     // delete old unnecessary tokens
-                    await web.execute(`DELETE FROM login_tokens WHERE user_id = ${users[0].id} AND expiry_time < ${now}"`)
+                    await web.execute(`DELETE FROM login_tokens WHERE user_id = ${users[0].id} AND expiry_time < ${now}`)
                 }
                 
                 // gen access token
@@ -95,7 +95,7 @@ router.post("/login", async (req, res) => {
             default:
                 return res.status(401).json({
                     code: 401,
-                    message: "The password provided does not match the recorded password."
+                    message: "The password provided does not match the recorded user's."
                 })
         }
     });
