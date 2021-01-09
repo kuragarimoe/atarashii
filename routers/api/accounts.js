@@ -52,8 +52,10 @@ router.post("/follow", async (req, res) => {
     }
 })
 
-router.post("/self", async (req, res) => {
+router.all("/self", async (req, res) => {
     let server = req.pools["server"];
+    let web = req.pools["web"];
+
     let result = await checkAccount(req, res, req.cookies)
     if (!result) return;
 
@@ -65,7 +67,8 @@ router.post("/self", async (req, res) => {
         data: {
             id: user.id,
             username: user.name,
-            privileges: user.priv
+            privileges: user.priv,
+            following: (await web.execute(`SELECT following as user_id, users.name as username FROM followers INNER JOIN samui.users ON users.id = followers.following WHERE follower = ${user.id}`))[0]
         }
     });
 });
