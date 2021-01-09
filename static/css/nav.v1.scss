@@ -15,17 +15,30 @@ body > footer {
 }
 
 .navbar {
-    background-image: url("/static/images/default_news.svg");
     background-color: var(--primary) !important;
-    height:52px !important;
+    height: 52px !important;
 }
 
-.navbar-item:hover, .navbar-item:focus, .navbar-item:focus-within {
-    background: rgba(255,255,255,.13) !important;
+.minimized {
+    position: fixed !important;
+    transition: 200ms background-color;
+    width: 100%;
+    top: 0;
+
+    backdrop-filter: blur(4px);
+    background-color: rgba(58, 88, 170, 0.7) !important;
 }
 
-.navbar-link:hover, .navbar-link:focus, .navbar-link:focus-within {
-    background: rgba(255,255,255,.13) !important;
+.navbar-item:hover,
+.navbar-item:focus,
+.navbar-item:focus-within {
+    background: rgba(255, 255, 255, 0.13) !important;
+}
+
+.navbar-link:hover,
+.navbar-link:focus,
+.navbar-link:focus-within {
+    background: rgba(255, 255, 255, 0.13) !important;
 }
 
 // AVATAR
@@ -44,7 +57,7 @@ body > footer {
     background-size: contain;
     background-repeat: no-repeat;
     display: block;
-    filter: drop-shadow( -1px 2px 2px rgba(0, 0, 0, 0.22) );
+    filter: drop-shadow(-1px 2px 2px rgba(0, 0, 0, 0.22));
     transition: 0.2s box-shadow;
     background-image: url("/static/images/default-avatar.png");
 }
