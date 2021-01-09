@@ -7,13 +7,13 @@ router.get("/", (req, res) => {
         message: "Hewwo! (´･ω･`)",
         endpoints: [
             "/api/beatmaps",
-            "/api/beatmaps/set/:id",
+            "/api/beatmaps/sets/:id",
             "/api/beatmaps/:id"
         ]
     })
 });
 
-router.get("/set/:id", async (req, res) => {
+router.get("/sets/:id", async (req, res) => {
     let server = req.pools["server"];
 
     let [maps, _] = await server.execute(`SELECT * FROM maps WHERE set_id = ${require("mysql2").escape(req.params.id)}`);
