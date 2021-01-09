@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" href="/static/css/pages/leaderboard.v1.css" />
 
-<section class="section" style="display: flex; justify-content: center;">
+<section class="section" style="display: flex; justify-content: center; height: 100%;">
     <!-- leaderboard -->
     <article class="panel leaderboard-panel">
         <!-- type -->
@@ -21,8 +21,8 @@
 
         <!-- mode -->
         <div class="panel-block leaderboard-background"
-            style="background-image: url('/static/images/backgrounds/leaderboards_{{type}}.jpg');">
-            <span id="title" style="color: white; font-size: 3em;">leaderboards ({{type}})</span><br>
+            style="background-image: url('/static/images/backgrounds/leaderboards_{{type}}.jpg'); text-shadow: 0 2px 3px rgba(0,0,0,.75);">
+            <span id="title" style="color: white; font-size: 3em; ">leaderboards ({{type}})</span><br>
             <p class="panel-tabs">
                 <a id="std" href="/leaderboards/osu/{{type}}/{{sort}}/{{page}}{{#if country}}?country={{country}}{{/if}}">osu!</a>
                 <a id="taiko" href="/leaderboards/taiko/{{type}}/{{sort}}/{{page}}{{#if country}}?country={{country}}{{/if}}">osu!taiko</a>

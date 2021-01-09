@@ -5,17 +5,18 @@
     <div class="container user-profile">
         <div class="columns" style="width: 100%;">
             <div class="column user-info">
-                <div class="user-avatar" style="background-image: url(http://a.lupinus.ml/{{user.id}});"></div>
+                <center>
+                <div class="user-avatar" style="background-image: url(http://a.lupinus.ml/{{user.id}});"></div></center>
                 <div id="user-data">
-                    <span class="username">{{#if country_code}}<span
+                    <span class="username">{{#if country_code}}<a href="/leaderboards/osu/vn/pp"><span
                             class="country no-underline-tooltip has-tooltip-arrow"
-                            data-tooltip="{{country_name}}">{{country_code}}</span>{{/if}}
+                            data-tooltip="{{country_name}}">{{country_code}}</span></a>{{/if}}
                         {{user.name}}</span>
                     {{#if verified}}<span class="no-underline-tooltip has-tooltip-arrow"
                         data-tooltip="Verified Player"><i class="fa fa-check verify-check"></i></span>{{/if}}<br>
 
                     {{#if role}}
-                        <span style="color: {{role.color}}">{{role.name}}</span>
+                        <span style="color: {{role.color}}; font-size: 0.9em; font-weight: 500;">{{role.name}}</span>
                     {{/if}}
                 </div>
                 <div id="roles">
@@ -24,7 +25,7 @@
                         style="background-color: #17191c !important; color: {{this.color}};">
                         {{this.tag}}
                         {{#if this.mode}}
-                        <span style="padding: 1px 0px 0px 4px; color: white; font-size: 1.5em;"
+                        <span style="padding: 1px 0px 0px 4px; color: white;"
                             class="fal fa-extra-mode-{{this.mode}}"></span>
                         {{/if}}
                         {{#if this.icon}}
