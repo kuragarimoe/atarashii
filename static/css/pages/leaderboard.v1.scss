@@ -1,60 +1,68 @@
 body {
     --base: 213;
-    --base-deg: 244.0deg;
+    --base-deg: 244deg;
 }
 
 .leaderboard-panel {
-	width: 55%;
-	background-color: #2f343a;
+    width: 55%;
+    background-color: #2f343a;
+    align-self: flex-start;
 }
 
 .leaderboard-panel > p.panel-heading {
-	color: white;
-	background-color: #22262a;
+    color: white;
+    background-color: #22262a;
 }
 
 .leaderboard-panel > p.panel-tabs {
-	color: white;
-	background-color: #2f343a;
+    color: white;
+    background-color: #2f343a;
+}
+
+.leaderboard-panel > p.panel-tabs:first-child {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 
 .leaderboard {
-	color: white;
-	background-color: #2f343a;
+    color: white;
+    background-color: #2f343a;
 }
 
 .panel-block:not(:last-child),
 .panel-tabs:not(:last-child) {
-	border-bottom: none;
+    border-bottom: none;
 }
 
 .panel-tabs a {
-	border-bottom: 1px solid #56a5e8;
-	margin: 0px 5px 0px 5px;
-	color: white !important;
+    border-bottom: 1px solid #56a5e8;
+    margin: 0px 5px 0px 5px;
+    color: white !important;
 }
 
 .panel-tabs a.is-active {
-	border-bottom: 3px solid #56a5e8;
-	font-weight: bold;
-	color: white !important;
+    border-bottom: 3px solid #56a5e8;
+    font-weight: bold;
+    color: white !important;
 }
 
 .leaderboard-background {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	padding: 20px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 0px 0px 0px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
-
 
 .leaderboard-sort {
-	background-color: #393f46 !important;
+    background-color: #393f46 !important;
 }
 
-
 .leaderboard-background > p.panel-tabs {
-	padding-bottom: 0px;
+    padding-bottom: 0px;
 }
 
 a.paginator-btn {
@@ -154,45 +162,51 @@ a.paginator-btn.disabled {
     border-bottom-left-radius: 6px;
 }
 
-
-.leaderboard-column, .leaderboard-column.inactive:hover>.ranking-page-table__column {
+.leaderboard-column,
+.leaderboard-column.inactive:hover > .ranking-page-table__column {
     background-color: hsl(var(--base), 15%, 25%);
 }
 
 .country {
-	position: relative;
-	top: 2.8px;
-	opacity: 1 !important;
+    position: relative;
+    top: 2.8px;
+    opacity: 1 !important;
 }
 .country img {
-	width: 21px;
-	height: auto;
-	padding-right: 5px;
-	opacity: 1 !important;
+    width: 21px;
+    height: auto;
+    padding-right: 5px;
+    opacity: 1 !important;
 }
-
 
 tr.leaderboard-column td {
     color: #fff !important;
     border-bottom-color: hsl(var(--base), 10%, 15%);
-	vertical-align: middle;
-	padding: 5px;
+    vertical-align: middle;
+    padding: 5px 15px 5px 15px;
+    font-weight: 600;
+}
+
+td:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
 
 .heading-important {
-	opacity: 1;
+    opacity: 1;
 }
 
 td.player-rank {
     background-color: hsl(var(--base), 15%, 27%) !important;
     border-left-color: hsl(var(--base), 20%, 20%);
     border-top-left-radius: 6px;
-	border-bottom-left-radius: 6px;
+    border-bottom-left-radius: 6px;
 }
 
 td.player-main {
-	text-align: left !important;
-	padding: 10px;
+    text-align: left !important;
+    font-size: 1.2em;
+    padding: 10px 10px 10px 13px !important;
 }
 
 td {
