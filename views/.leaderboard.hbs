@@ -1,0 +1,69 @@
+<script>
+    // gotten from hbs
+    var mode = "{{mode}}";
+    var type = "{{type}}";
+    var sort = "{{sort}}";
+    var page = {{page}};
+    var country = {{#if country}}"{{country}}"{{else}}null{{/if}};
+</script>
+
+<link rel="stylesheet" href="/static/css/pages/leaderboard.v1.css" />
+
+<section class="section" style="display: flex; justify-content: center;">
+    <!-- leaderboard -->
+    <article class="panel leaderboard-panel">
+        <!-- type -->
+        <p class="panel-tabs">
+            <a id="vn" href="/leaderboards/{{mode}}/vn/{{sort}}/{{page}}{{#if country}}?country={{country}}{{/if}}">vanilla</a>
+            <a id="rx" href="/leaderboards/{{mode}}/rx/{{sort}}/{{page}}{{#if country}}?country={{country}}{{/if}}">relax</a>
+            <a id="ap" href="/leaderboards/{{mode}}/ap/{{sort}}/{{page}}{{#if country}}?country={{country}}{{/if}}">autopilot</a>
+        </p>
+
+        <!-- mode -->
+        <div class="panel-block leaderboard-background"
+            style="background-image: url('/static/images/backgrounds/leaderboards_{{type}}.jpg');">
+            <span id="title" style="color: white; font-size: 3em;">leaderboards ({{type}})</span><br>
+            <p class="panel-tabs">
+                <a id="std" href="/leaderboards/osu/{{type}}/{{sort}}/{{page}}{{#if country}}?country={{country}}{{/if}}">osu!</a>
+                <a id="taiko" href="/leaderboards/taiko/{{type}}/{{sort}}/{{page}}{{#if country}}?country={{country}}{{/if}}">osu!taiko</a>
+                <a id="catch" href="/leaderboards/catch/{{type}}/{{sort}}/{{page}}{{#if country}}?country={{country}}{{/if}}">osu!catch</a>
+                <a id="mania" href="/leaderboards/mania/{{type}}/{{sort}}/{{page}}{{#if country}}?country={{country}}{{/if}}">osu!mania</a>
+            </p>
+        </div>
+
+        <!-- sorting -->
+        <p class="panel-tabs leaderboard-sort" style="display: flex; justify-content: left;">
+            <a id="pp" href="/leaderboards/{{mode}}/{{type}}/pp{{#if country}}?country={{country}}{{/if}}">performance</a>
+            <a id="score" href="/leaderboards/{{mode}}/{{type}}/score{{#if country}}?country={{country}}{{/if}}">score</a>
+        </p>
+
+        <!-- leaderboard -->
+        <div class="panel-block leaderboard">
+            <div class="paginator">
+                <a href="/leaderboards/{{mode}}/{{type}}/{{sort}}/{{pref}}{{#if country}}?country={{country}}{{/if}}"
+                    class="paginator-btn {{#if disable_prev}}disabled{{/if}}" id="left"><i
+                        class="fas fa-angle-left paginator-icon "></i>&nbsp;PREV</a>
+                <a href="/leaderboards/{{mode}}/{{type}}/{{sort}}/{{next}}{{#if country}}?country={{country}}{{/if}}" class="paginator-btn"
+                    id="right">NEXT&nbsp;<i class="fas fa-angle-right paginator-icon"></i></a>
+            </div>
+        </div>
+        <div class="panel-block leaderboard" id="leaderboard">
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th class="leaderboard-heading"></th>
+                        <th class="leaderboard-heading leaderboard-heading--main"></th>
+                        {{#ifnot sort "pp"}}<th class="leaderboard-heading"> total score</th>{{/ifnot}}
+                        <th class="leaderboard-heading heading-important"> {{sort}} </th>
+                        <th class="leaderboard-heading"> accuracy </th>
+                        <th class="leaderboard-heading"> playcount </th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-data">
+                </tbody>
+            </table>
+        </div>
+    </article>
+</section>
+
+<script src="/static/js/pages/leaderboard.v1.js"></script>
