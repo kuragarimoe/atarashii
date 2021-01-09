@@ -6,3 +6,7 @@
     --background-color: #22262a;
     --body-color: #17191c;
 }
+
+*, ::after, ::before {
+    box-sizing: border-box !important;
+}
