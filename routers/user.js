@@ -24,7 +24,7 @@ router.get("/:query", async (req, res) => {
 	let settings = (await web.execute(`SELECT * FROM user_settings WHERE id = ${user[0].id}`))[0][0] || {};
 	let roles = settings.roles ? (await web.execute(`SELECT * FROM roles WHERE id IN (${settings.roles})`))[0] : [];
 
-	roles = roles.sort((a, b) => a.priority - b.priority);
+	roles = roles.sort((a, b) => b.priority - a.priority);
 
 	console.log({
 		created: new Date(user[0].creation_time * 1000),
