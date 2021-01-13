@@ -32,13 +32,14 @@ body > footer {
 .navbar-item:hover,
 .navbar-item:focus,
 .navbar-item:focus-within {
-    background: rgba(255, 255, 255, 0.13) !important;
+    color: white !important;
+    background: none !important;
 }
-
 .navbar-link:hover,
 .navbar-link:focus,
 .navbar-link:focus-within {
-    background: rgba(255, 255, 255, 0.13) !important;
+    color: white !important;
+    background: none !important;
 }
 
 // AVATAR
