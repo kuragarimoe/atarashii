@@ -1,4 +1,4 @@
-# Atarashii
+![](https://i.imgur.com/liPVrKi.png)
 The official repository for the UI frontend that powers the [Katagiri](https://osu.katagiri.ml) website, and public developer API. This consists of all the inner workings and files that make the website itself work, alongside all of its stylesheets. A known fact is that a lot of this code can be simplified and rewritten, but such won't happen for a while.
 
 
